@@ -1,6 +1,8 @@
+org\demo\springboot\attendance\schedule\config\CheckInDataSourceConfig.class
+org\demo\springboot\attendance\schedule\config\AccountDataSourceConfig.class
+org\demo\springboot\attendance\schedule\schedule\AttendanceScheduleRunner.class
 org\demo\springboot\attendance\schedule\dto\AttendanceDTO.class
 org\demo\springboot\attendance\schedule\DemoSpringbootAttendanceScheduleApplication.class
-org\demo\springboot\attendance\schedule\schedule\AttendanceScheduleRunner.class
 org\demo\springboot\attendance\schedule\service\AttendanceStatusService.class
 org\demo\springboot\attendance\schedule\serviceImpl\AttendanceStatusServiceImpl.class
 org\demo\springboot\attendance\schedule\mapper\AttendanceMapper.class

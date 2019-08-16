@@ -1,8 +1,10 @@
 package org.demo.springboot.account.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.demo.springboot.account.dto.AccountDTO;
-import org.demo.springboot.account.dto.LoginUserInfo;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,10 +16,12 @@ public interface AccountService {
 	
 	public void delete(Long id);
 	
-	public LoginUserInfo signIn(String username, String password);
-	
-	public AccountDTO queryUserInfo(Long id);
-	
-	public Boolean checkUsernameExist(String username);
+	@SuppressWarnings("rawtypes")
+	public ResponseEntity signUp(String username, String password, String emailAddress);
 
+	@SuppressWarnings("rawtypes")
+	public ResponseEntity signIn(String username, String password);
+	
+	public String queryUserInfo(HttpServletRequest request);
+	
 }

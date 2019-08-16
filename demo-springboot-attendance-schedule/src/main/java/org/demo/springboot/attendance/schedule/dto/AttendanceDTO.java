@@ -5,7 +5,7 @@ import java.util.Date;
 public class AttendanceDTO {
 
 	private Long sid;
-	private Long employeeId;
+	private Long userId;
 	private Date workDate;
 	private Date clockIn;
 	private Date clockOut;
@@ -19,12 +19,12 @@ public class AttendanceDTO {
 		this.sid = sid;
 	}
 
-	public Long getEmployeeId() {
-		return employeeId;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setEmployeeId(Long employeeId) {
-		this.employeeId = employeeId;
+	public void setUserId(Long employeeId) {
+		this.userId = employeeId;
 	}
 
 	public Date getWorkDate() {

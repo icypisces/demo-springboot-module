@@ -1,13 +1,11 @@
 package org.demo.springboot.account.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.demo.springboot.account.dto.CheckInDTO;
 import org.demo.springboot.account.serviceImpl.CheckInServiceImpl;
-import org.demo.springboot.base.pojo.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,28 +33,17 @@ public class CheckInController {
         @ApiImplicitParam(name = "userId", value = "使用者Id", required = true, paramType = "query")
 	})
 	public ResponseEntity checkIn(HttpServletRequest request){
-		CheckInDTO checkInData = new CheckInDTO();
-		checkInData.setUserId(Long.valueOf(request.getParameter("userId")));
-		Date current = new Date(System.currentTimeMillis());
-		checkInData.setCheckInTime(current);
-		if (checkInService.checkIn(checkInData)){
-			return ResponseEntity.ok(checkInData.getUserId() + " 打卡成功");
-		} else {
-			return ResponseEntity.ok(checkInData.getUserId() + " 打卡失敗");
-		}
+		return checkInService.checkIn(request);
 	}
 	
 	@ApiOperation(value = "查詢全部打卡紀錄")
-	@GetMapping("/queryAllcheckInData")
+	@GetMapping("/queryCheckInData")
 	@ApiImplicitParams({
         @ApiImplicitParam(name = "pageNum", value = "當前頁面，預設值為1", required = true, paramType = "query"),
         @ApiImplicitParam(name = "pageSize", value = "頁面大小，預設值為5", required = true, paramType = "query")
 	})
-	public List<CheckInDTO> queryAllcheckInData(HttpServletRequest request) {
-		Page page = new Page();
-		page.setPageNum(Integer.valueOf(request.getParameter("pageNum") != null ? request.getParameter("pageNum") : "1"));
-		page.setPageSize(Integer.valueOf(request.getParameter("pageSize") != null ? request.getParameter("pageSize") : "5"));
-		return checkInService.queryAllcheckInData(page);
+	public List<CheckInDTO> queryCheckInData(HttpServletRequest request) {
+		return checkInService.queryCheckInData(request);
 	}
 
 }
